@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cdu.csf.dao.UserDao">
+    <select id="findAll" resultType="cdu.csf.model.User">
+        select * from user_table
+    </select>
+
+    <select id="findByNameAndPwd" parameterType="cdu.csf.model.User" resultType="cdu.csf.model.User">
+        SELECT * FROM user_table WHERE name = #{name} AND password = #{password}
+    </select>
+
+    <select id="find" parameterType="int" resultType="cdu.csf.model.User">
+        select * from user_table where id = #{id}
+    </select>
+
+    <select id="count" resultType="int">
+        select count(*) from user_table
+    </select>
+
+    <insert id="insert" parameterType="cdu.csf.model.User" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO user_table (name, password, sex, hobby)
+        VALUES (#{name}, #{password}, #{sex}, #{hobby});
+    </insert>
+
+    <update id="update" parameterType="cdu.csf.model.User">
+        UPDATE user_table SET name=#{name},password=#{password},sex=#{sex},hobby=#{hobby} WHERE id=#{id}
+    </update>
+
+    <delete id="delete" parameterType="int">
+        DELETE FROM user_table WHERE id=#{id}
+    </delete>
+
+</mapper>

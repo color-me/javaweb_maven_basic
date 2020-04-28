@@ -7,6 +7,29 @@ public class User implements Serializable {
     private Integer id;
     private String name;
     private String password;
+    private String sex;
+    private String hobby;
+
+    public User(){
+
+    }
+
+    public User(String name, String password, String sex, String hobby) {
+        this.name = name;
+        this.password = password;
+        this.sex = sex;
+        this.hobby = hobby;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) { this.sex = sex; }
+
+    public String getHobby() { return hobby; }
+
+    public void setHobby(String hobby) { this.hobby = hobby; }
 
     public Integer getId() {
         return id;
@@ -38,6 +61,8 @@ public class User implements Serializable {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
+                ", sex='" + sex + '\'' +
+                ", hobby='" + hobby + '\'' +
                 '}';
     }
 }
